@@ -1,1 +1,81 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Genshin Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="fon">
+        <video src="1764643511_VSTHEMES-ORG/1764643511/video-bg.3e78e808.mp4" autoplay muted loop></video>
+    </div>
+    <header class="glavnaya">
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Home page</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+   <div class="tekst">
+    <h1>Genshin Impact Store</h1>
+    <p>Welcome to the Genshin Impact Services page! On this page, you can find the help you need at a great price!</p>
+    <a href="services.html">Go to services...</a>
+</div>
+    <section class="boxy">
+    <div class="box" id="click1">
+        <h3>Farm resources</h3>
+        <p>I'll help you farm resources for your characters</p>
+    </div>
+
+    <div class="box" id="click2">
+        <h3>Cleaning the map</h3>
+        <p>I can help you with cleaning in any region</p>
+    </div>
+
+    <div class="box" id="click3">
+        <h3>Completing quests</h3>
+        <p>I can help you completing the quests "Archon", "Peace" and "Meeting"</p>
+    </div>
+</section>
+<main>
+    <section class="boxinfo">
+        <div id="box1">
+            <h3>Farm resources</h3>
+            <p>Want to save up resources for your character but don't have the time? <br>
+                This site will help you do just that — just go to the Services tab.</p>
+        </div>
+
+        <div id="box2">
+            <h3>Cleaning the map</h3>
+            <p>I'll help you clear any region up to 100%. The price for clearing the map may
+                vary depending on your percentage. <br>
+                For more information, go to the services tab.</p>
+        </div>
+
+        <div id="box3">
+            <h3>Completing quests</h3>
+            <p>Bored of reading storylines or world quests? Let me read them for you! In the Genshin Services section, <br>
+                you can find what you're looking for at a good price.</p>
+        </div>
+    </section>
+</main>
+<script>
+    document.getElementById("click1").onclick = function() {
+        document.getElementById("box1").scrollIntoView({ behavior: "smooth" });
+    };
+
+    document.getElementById("click2").onclick = function() {
+        document.getElementById("box2").scrollIntoView({ behavior: "smooth" });
+    };
+
+    document.getElementById("click3").onclick = function() {
+        document.getElementById("box3").scrollIntoView({ behavior: "smooth" });
+    };
+</script>
+</body>
+</html>
 
