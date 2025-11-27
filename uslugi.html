@@ -1,1 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genshin Impact Services</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="fon2">
 
+    
+    <div class="particles"></div>
+    <header class="glavnaya">
+        <div id="cart-popup" class="cart-popup">
+    <h3>Your Order</h3>
+    <div id="cart-items"></div>
+    <p class="cart-total">Total: <span id="total-price">0</span> zł</p>
+    <button class="close-cart" onclick="toggleCart()">Close</button>
+    </div>
+        <nav>
+            <div class="cart-icon" onclick="toggleCart()">
+                🛒 <span id="cart-count">0</span>
+            </div>
+            <ul class="menu">
+                <li><a href="index.html">Home page</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="services" class="services-section">
+    <h2 class="section-title">Services</h2>
+
+    <div class="services-grid">
+        <div class="service-card" data-service="haircut">
+            <h3>Farm resources</h3>
+            <p class="price">60 zł</p>
+        </div>
+        <div class="service-card" data-service="color">
+            <h3>Cleaning region</h3>
+            <p class="price">150 zł</p>
+        </div>
+        <div class="service-card" data-service="manicure">
+            <h3>Completing quests</h3>
+            <p class="price">70 zł</p>
+        </div>
+
+    </div>
+</section>
+<div id="service-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+
+        <h2 id="modal-title"></h2>
+        <p id="modal-description"></p>
+        <p id="modal-price"></p>
+
+        <button class="add-cart-btn">Add</button>
+    </div>
+</div>
+</div>
+<footer>
+    <h3>All prices are not real but invented by the author of the project!</h3>
+</footer>
+<script>
+const modal = document.getElementById("service-modal");
+const modalTitle = document.getElementById("modal-title");
+const modalDescription = document.getElementById("modal-description");
+const modalPrice = document.getElementById("modal-price");
+const closeBtn = document.querySelector(".close-modal");
+
+const servicesInfo = {
+    haircut: {
+        title: "Farm resources",
+        description: "I helped you accumulate all the necessary resources for your character. The price for accumulating one resource.",
+        price: "60 zł"
+    },
+    color: {
+        title: "Cleaning the map",
+        description: "I will clear your map in a very short time!",
+        price: "150 zł"
+    },
+    manicure: {
+        title: "Completing quests",
+        description: "I will complete any event, any task.",
+        price: "70 zł"
+    }
+};
+document.querySelectorAll(".service-card").forEach(card => {
+    card.addEventListener("click", () => {
+        const serviceKey = card.dataset.service;
+        const info = servicesInfo[serviceKey];
+
+        modalTitle.textContent = info.title;
+        modalDescription.textContent = info.description;
+        modalPrice.textContent = "Price: " + info.price;
+
+        modal.style.display = "flex";
+    });
+});
+closeBtn.onclick = () => modal.style.display = "none";
+modal.onclick = e => (e.target === modal ? modal.style.display = "none" : null);
+const particlesContainer = document.querySelector('.particles');
+
+function createParticles() {
+    const particlesCount = 70;
+
+    for (let i = 0; i < particlesCount; i++) {
+        const particle = document.createElement('span');
+
+        let size = Math.random() * 4 + 2;
+        let posX = Math.random() * window.innerWidth;
+        let delay = Math.random() * 10;
+        let duration = Math.random() * 20 + 15;
+
+        particle.style.width = size + "px";
+        particle.style.height = size + "px";
+        particle.style.left = posX + "px";
+        particle.style.bottom = "-50px";
+        particle.style.animationDelay = delay + "s";
+        particle.style.animationDuration = duration + "s";
+
+        particlesContainer.appendChild(particle);
+    }
+}
+
+createParticles();
+let cart = [];
+
+function addToCart(name, price) {
+    cart.push({ name, price });
+
+    document.getElementById("cart-count").textContent = cart.length;
+
+    updateCart();
+}
+
+function updateCart() {
+    const container = document.getElementById("cart-items");
+    const total = document.getElementById("total-price");
+
+    container.innerHTML = "";
+    let sum = 0;
+
+    cart.forEach((item, index) => {
+        sum += item.price;
+
+        container.innerHTML += `
+            <div class="cart-item">
+                <span>${item.name} - ${item.price} zł</span>
+                <button onclick="removeItem(${index})">✖</button>
+            </div>
+        `;
+    });
+
+    total.textContent = sum;
+}
+
+function removeItem(i) {
+    cart.splice(i, 1);
+    document.getElementById("cart-count").textContent = cart.length;
+    updateCart();
+}
+
+function toggleCart() {
+    document.getElementById("cart-popup").classList.toggle("show");
+}
+</script>
+</body>
+</html>
