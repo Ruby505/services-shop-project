@@ -16,6 +16,55 @@
             </ul>
         </nav>
     </header>
-   
+<div class="user-data-form" style="display:flex; flex-direction:column; gap:10px; max-width:300px; margin-bottom:20px;">
+  <input id="userName" type="text" placeholder="First Name" style="padding:10px; border-radius:8px; border:1px solid #555; background:#111; color:white;">
+  <input id="userSurname" type="text" placeholder="Last Name" style="padding:10px; border-radius:8px; border:1px solid #555; background:#111; color:white;">
+  <input id="userPhone" type="text" placeholder="Phone Number" style="padding:10px; border-radius:8px; border:1px solid #555; background:#111; color:white;">
+</div>
+<button id="cartButton" style="padding:12px 20px; border-radius:10px; background:#6a00ff; color:white; border:none; cursor:pointer; font-size:16px;">Open Cart</button>
+<div id="cartModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); justify-content:center; align-items:center;">
+  <div style="background:#222; padding:20px; border-radius:12px; width:350px; color:white;">
+    <h2>Cart</h2>
+    <div id="cartItems"></div>
+    <h3>User Data:</h3>
+    <p id="userDataDisplay"></p>
+    <button onclick="closeCart()" style="margin-top:15px; padding:10px 15px; border:none; border-radius:8px; background:#6a00ff; color:white; cursor:pointer;">Close</button>
+  </div>
+</div>
+
+<script>
+let cart = [];
+
+function addToCart(serviceName, price) {
+  cart.push({ serviceName, price });
+  alert(serviceName + " added to cart");
+}
+
+document.getElementById("cartButton").onclick = function () {
+  const modal = document.getElementById("cartModal");
+  const cartItems = document.getElementById("cartItems");
+  const userData = document.getElementById("userDataDisplay");
+
+  cartItems.innerHTML = cart.length > 0
+    ? cart.map(item => `<p>${item.serviceName} – ${item.price} zł</p>`).join("")
+    : "<p>Your cart is empty.</p>";
+
+  const name = document.getElementById("userName").value;
+  const surname = document.getElementById("userSurname").value;
+  const phone = document.getElementById("userPhone").value;
+
+  userData.innerHTML = name || surname || phone
+    ? `${name} ${surname}<br>Phone: ${phone}`
+    : "No user data provided.";
+
+  modal.style.display = "flex";
+};
+
+function closeCart() {
+  document.getElementById("cartModal").style.display = "none";
+}
+</script>
+
 </body>
 </html>
+
