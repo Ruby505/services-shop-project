@@ -1,1 +1,319 @@
+html {
+    scroll-behavior: smooth;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.glavnaya {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.205);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.295);
+    z-index: 1000;
+}
+.fon {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+.tekst {
+    background: rgba(255, 255, 255, 0.25);
+    margin: 100px;
+    padding: 20px 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px); 
+    display: block;
+    text-align: center;
+    align-content: center;
+    color: #39306a;
+}
+.fon video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    list-style: none;
+    padding: 18px 0;
+    margin: 0;
+}
+
+.menu a {
+    font-family: "Inter", sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: #333;
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 10px;
+    transition: 0.25s ease;
+}
+.menu a:hover {
+    background: rgba(0, 0, 0, 0.08);
+    color: #000;
+    transform: translateY(-2px);
+}
+body {
+transition: 0.3s ease;
+}
+.background-video{
+    height: 100%;
+    width: 100%;
+}
+.boxy {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+gap: 28px;
+padding: 50px 40px 100px;
+max-width: 1200px;
+margin: auto;
+}
+.box{
+background: rgba(255, 255, 255, 0.85);
+backdrop-filter: blur(10px);
+border-radius: 20px;
+padding: 25px;
+text-align: center;
+box-shadow: 0 8px 25px rgba(130, 110, 255, 0.22);
+transition: 0.35s ease;
+cursor: pointer;
+position: relative;
+}
+.box:hover {
+transform: translateY(-6px);
+}
+.box h3 {
+font-size: 22px;
+margin-bottom: 14px;
+color: #39306a;
+}
+.box p {
+font-size: 15px;
+color: #555;
+}
+.boxinfo
+{
+   background: linear-gradient(rgb(71, 68, 68), black);
+   margin: 0;
+   height: 100%;
+   color: whitesmoke;
+   justify-content: left;
+   font-family: Georgia, serif;
+   font-size: x-large;
+   
+}
+#box1
+{
+    padding:25vh;
+}
+#box2{
+    padding: 25vh;
+}
+#box3
+{
+    padding: 25vh;
+}
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+.services-section {
+    padding: 60px 20px;
+    text-align: center;
+}
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+.service-card {
+    background: #302564;
+    padding: 25px;
+    border-radius: 18px;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 0 0 transparent;
+}
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 18px 26px rgba(0, 0, 0, 0.35);
+}
+.price {
+    margin-top: 10px;
+    font-weight: bold;
+    color: whitesmoke;
+    font-size: 18px;
+}
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+.modal-content {
+    background: #5f5454;
+    padding: 30px;
+    border-radius: 16px;
+    width: 320px;
+    text-align: center;
+    animation: popup 0.3s ease;
+}
+@keyframes popup {
+    from { transform: scale(0.85); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+}
+.close-modal {
+    float: right;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: bold;
+}
+.add-cart-btn {
+    margin-top: 20px;
+    padding: 12px 20px;
+    border-radius: 14px;
+    background: whitesmoke;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+.add-cart-btn:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
+}
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+.particles span {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    animation: floatUp linear infinite;
+    opacity: 0.8;
+}
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.3;
+    }
+    100% {
+        transform: translateY(-2000px) scale(1.2);
+        opacity: 0;
+    }
+}
+.fon2
+{
+    background: linear-gradient(white, #1c153f);
+}
+footer
+{
+    background-color: #1c153f;
+    color: whitesmoke;
+    font-family: "Inter", sans-serif;
+    height: 50vh;
+    text-align: center;
+    
+}
+.cart-icon {
+    position: relative;
+    font-size: 22px;
+    cursor: pointer;
+    margin-left: 20px;
+    transition: 0.3s;
+}
+
+.cart-icon:hover {
+    transform: scale(1.15);
+}
+
+#cart-count {
+    background: #ffcc00;
+    color: #000;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-size: 12px;
+    margin-left: 5px;
+}
+.cart-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.7);
+    background: rgba(30, 30, 40, 0.85);
+    backdrop-filter: blur(8px);
+    padding: 25px;
+    width: 320px;
+    border-radius: 16px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+    color: white;
+    z-index: 999;
+    display: none;
+    transition: 0.3s ease;
+}
+
+.cart-popup.show {
+    display: block;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.close-cart {
+    background: #ffcc00;
+    color: black;
+    border: none;
+    padding: 10px 15px;
+    margin-top: 10px;
+    width: 100%;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.close-cart:hover {
+    transform: scale(1.05);
+}
+
+.cart-item {
+    background: rgba(255,255,255,0.1);
+    padding: 8px;
+    border-radius: 10px;
+    margin: 6px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart-item button {
+    background: crimson;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 4px 8px;
+}
 
